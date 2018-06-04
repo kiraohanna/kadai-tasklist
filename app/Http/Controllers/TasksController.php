@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-use Illuminate\Http\Requests;
+use App\HTTP\Requests;
 
 use App\Task;
 
@@ -47,8 +47,8 @@ class TasksController extends Controller
     public function store(Request $request)
     {
         $task = new Task;
-        $task->content = $task->content;
-        $task-save();
+        $task->content = $request->content;
+        $task->save();
         
         return redirect('/');
     }

@@ -1,6 +1,15 @@
 @extends('layouts.app')
 @section('content')
 
-    {!! link_to_route('tasks.create', '新規タスクの投稿') !!}
+    <h1>タスク新規作成ページ</h1>
+    
+    {!! Form::model($task, ['route' => 'tasks.store']) !!}
+    
+        {!! Form::label('content', 'タスク:') !!}
+        {!! Form::text('content') !!}
+        
+        {!! Form::submit('投稿') !!}
+    
+    {!! Form::close() !!}
 
 @endsection

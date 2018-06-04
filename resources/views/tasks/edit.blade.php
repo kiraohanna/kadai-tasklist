@@ -8,6 +8,14 @@
         {!! Form::label('content', 'タスク:') !!}
         {!! Form::text('content') !!}
         
+        {!! Form::label('status', 'ステータス:') !!}
+        {!! Form::select('status', [
+            'Status'=>'Status', 
+            'To do' => 'To do',
+            'Doing' => 'Doing',
+            'Done' => 'Done']
+        ) !!}
+        
         {!! Form::submit('更新') !!}
         
     {!! Form::close() !!}

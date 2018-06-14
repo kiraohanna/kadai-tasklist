@@ -87,12 +87,12 @@ class TasksController extends Controller
     public function show($id)
     {
         if(\Auth::check()) {
-            $user = \Auth::user();
-            $task = $user->task($id);
-            return view('tasks.show', [
+            $task = Task::find($id);
+        }
+        
+        return view('tasks.show', [
                 'task' => $task,
             ]);
-        }
     }
 
     /**
@@ -106,7 +106,7 @@ class TasksController extends Controller
         $user = \Auth::user();
         $task = $user->task($id);
         
-        if (\Auth::id() === $tasks->user_id) {
+        if (\Auth::id() === $task->user_id) {
             $task->edit();
         }
         
